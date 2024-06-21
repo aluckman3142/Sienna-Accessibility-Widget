@@ -1,4 +1,8 @@
 <style>
+    :root {
+        --q-primary: #0848ca;
+    }
+
     .asw-menu {
         position: fixed;
         left: 0;
@@ -33,7 +37,7 @@
         padding-right: 18px;
         height: 55px;
         font-weight: 700 !important;
-        background-color: #0848ca !important;
+        background-color: var(--q-primary) !important;
     }
 
     .asw-menu-title {
@@ -42,7 +46,7 @@
     }
 
     .asw-menu-header svg {
-        fill: #0848ca !important;
+        fill: var(--q-primary) !important;
         width: 24px !important;
         height: 24px !important;
         min-width: 24px !important;
@@ -55,7 +59,7 @@
         display: flex;
     }
 
-    .asw-menu-header div[role="button"] {
+    .asw-menu-header div[role='button'] {
         padding: 5px;
         background: white !important;
         cursor: pointer;
@@ -63,7 +67,7 @@
         transition: opacity 0.3s ease;
     }
 
-    .asw-menu-header div[role="button"]:hover {
+    .asw-menu-header div[role='button']:hover {
         opacity: 0.8;
     }
 
@@ -134,7 +138,7 @@
 
     .asw-plus:hover,
     .asw-minus:hover {
-        border-color: #0848ca !important;
+        border-color: var(--q-primary) !important;
     }
 
     .asw-amount {
@@ -162,21 +166,21 @@
 
     .asw-btn:hover,
     .asw-btn.asw-selected {
-        border-color: #0848ca !important;
+        border-color: var(--q-primary) !important;
     }
 
     .asw-btn.asw-selected svg,
     .asw-btn.asw-selected span {
-        fill: #0848ca !important;
-        color: #0848ca !important;
+        fill: var(--q-primary) !important;
+        color: var(--q-primary) !important;
     }
 
     .asw-btn.asw-selected:after {
-        content: "✓";
+        content: '✓';
         position: absolute;
         top: 10px;
         right: 10px;
-        background-color: #0848ca !important;
+        background-color: var(--q-primary) !important;
         color: #fff;
         padding: 6px;
         font-size: 10px;
@@ -207,12 +211,12 @@
 
     .asw-footer a:hover,
     .asw-footer a:hover span {
-        color: #0848ca !important;
+        color: var(--q-primary) !important;
     }
 
     .asw-menu-content {
         overflow: scroll;
-        max-height: calc(100% - 80px);
+        max-height: calc(100% - 55px);
         padding: 30px 0 15px;
     }
 
@@ -239,7 +243,7 @@
         font-size: 15px !important;
     }
 
-    .asw-adjust-font div[role="button"] {
+    .asw-adjust-font div[role='button'] {
         background: #eff1f5 !important;
         border-radius: 50%;
         width: 36px;
@@ -294,12 +298,9 @@
         </div>
     </div>
     <div class="asw-menu-content">
-        <div class="asw-card">
-            <select
-                id="asw-language"
-                title="Language"
-                class="asw-select"
-            ></select>
+        <!-- TODO: Need to hide using config -->
+        <div style="display: none" class="asw-card">
+            <select id="asw-language" title="Language" class="asw-select"></select>
         </div>
 
         <div class="asw-card">
@@ -311,9 +312,7 @@
                         viewBox="0 0 24 24"
                         style="margin-right: 15px"
                     >
-                        <path
-                            d="M2 4v3h5v12h3V7h5V4H2m19 5h-9v3h3v7h3v-7h3V9Z"
-                        />
+                        <path d="M2 4v3h5v12h3V7h5V4H2m19 5h-9v3h3v7h3v-7h3V9Z" />
                     </svg>
                     <div class="asw-translate">Adjust Font Size</div>
                 </div>
@@ -326,10 +325,7 @@
                         title="Decrease Font Size"
                         tabindex="0"
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                        >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path d="M19 13H5v-2h14v2Z" />
                         </svg>
                     </div>
@@ -342,10 +338,7 @@
                         title="Increase Font Size"
                         tabindex="0"
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                        >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2Z" />
                         </svg>
                     </div>
@@ -364,13 +357,6 @@
             <div class="asw-card-title">Tools</div>
             <div class="asw-items tools"></div>
         </div>
-    </div>
-
-    <div class="asw-footer">
-        <a href="https://accessibility-widget.pages.dev" target="_blank"
-            >Web Accessibility By
-            <span style="font-weight: 700; color: inherit">Sienna</span> ❤️</a
-        >
     </div>
 </div>
 
