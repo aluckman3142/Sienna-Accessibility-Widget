@@ -1,11 +1,11 @@
-import { injectToolCSS } from "../utils/cssGenerator";
-import IToolConfig from "../types/IToolConfig";
-import { TEXT_SELECTORS } from "../enum/Selectors";
+import { injectToolCSS } from '../utils/cssGenerator';
+import IToolConfig from '../types/IToolConfig';
+import { TEXT_SELECTORS } from '../enum/Selectors';
 
 export const readableFontConfig: IToolConfig = {
-    id: "readable-font",
+    id: 'readable-font',
     selector: `html`,
-    childrenSelector: ['', '*:not(.material-icons,.fa)', ...TEXT_SELECTORS],
+    childrenSelector: ['.q-toggle__label,.label,.q-item__label'],
     styles: {
         'font-family': 'OpenDyslexic3,Comic Sans MS,Arial,Helvetica,sans-serif'
     },
@@ -15,11 +15,11 @@ export const readableFontConfig: IToolConfig = {
             src: url("https://website-widgets.pages.dev/fonts/OpenDyslexic3-Regular.woff") format("woff"), url("https://website-widgets.pages.dev/fonts/OpenDyslexic3-Regular.ttf") format("truetype");
         }
     `
-}
+};
 
-export default function readableFont(enable=false) {
+export default function readableFont(enable = false) {
     injectToolCSS({
         ...readableFontConfig,
         enable
-    })
+    });
 }
