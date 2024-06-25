@@ -55,7 +55,6 @@ export default function screenReader(enable = false) {
             if (!['BODY', 'HEAD', 'HTML'].includes(clickedElement.nodeName)) {
                 var selectedText = getFullSentence(clickedElement);
 
-                console.log('screenReader', selectedText);
                 speakText(selectedText);
             }
         };
