@@ -9,6 +9,7 @@ import adjustLetterSpacing from '../../tools/adjustLetterSpacing';
 import adjustLineHeight from '../../tools/adjustLineHeight';
 import adjustFontWeight from '../../tools/adjustFontWeight';
 import highlightRequired from '../../tools/highlightRequired';
+import screenReader from '../../tools/screenReader';
 
 export default function renderTools() {
     let { states } = getSettings();
@@ -24,6 +25,7 @@ export default function renderTools() {
     readableFont(states['readable-font']);
 
     readingGuide(states['readable-guide']);
+    screenReader(states['screen-reader']);
     stopAnimations(states['stop-animations']);
     bigCursor(states['big-cursor']);
 }
