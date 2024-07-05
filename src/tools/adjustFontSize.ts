@@ -1,7 +1,7 @@
 export default function adjustFontSize(multiply: number = 1) {
     document
         .querySelectorAll(
-            'h1,h2,h3,h4,h5,h6,p,a,dl,dt,li,ol,th,td,span,blockquote,.asw-text,.q-item__label,.text-title,.q-field__native,.text-label,.q-toggle__label,label,.q-placeholder'
+            'h1,h2,h3,h4,h5,h6,p,a,dl,dt,li,ol,th,td,span,blockquote,.asw-text,.q-item__label,.text-title,.q-field__native,.text-label,.q-toggle__label,label,.q-placeholder,.q-table__bottom--nodata'
         )
         .forEach((el: HTMLElement) => {
             if (!el.classList.contains('material-icons') && !el.classList.contains('fa')) {
