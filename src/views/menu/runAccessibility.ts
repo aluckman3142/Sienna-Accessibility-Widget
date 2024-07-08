@@ -14,9 +14,9 @@ export default function runAccessibility(opts?: ISettingsStates) {
 
     if (opts) {
         Object.assign(states, opts);
-        saveState(states);
     }
 
+    saveState(states);
     adjustFontSize(states?.['fontSize'] || 1);
     renderTools();
     renderFilter();
