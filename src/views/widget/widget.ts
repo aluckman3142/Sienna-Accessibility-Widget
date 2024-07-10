@@ -1,18 +1,29 @@
 // @ts-ignore
-import template from "./widget.html";
-import toggle from "../../utils/toggle";
-import { renderMenu } from "../menu/menu";
-import { ISeinnaSettings } from "../../sienna";
-import translateMenu from "../menu/translateMenu";
+import template from './widget.html';
+import toggle from '../../utils/toggle';
+import { renderMenu } from '../menu/menu';
+import { ISeinnaSettings } from '../../sienna';
+import translateMenu from '../menu/translateMenu';
+
+// globals.d.ts
+declare var google: any;
+
+// Function to be called after the script is loaded
+function googleTranslateElementInit(): void {
+    new google.translate.TranslateElement(
+        { pageLanguage: 'en', layout: 1 },
+        'google_translate_element'
+    );
+}
 
 export function renderWidget(options: ISeinnaSettings) {
-    let { position = "bottom-left", offset = [20, 20] } = options;
+    let { position = 'bottom-left', offset = [20, 20] } = options;
 
-    const widget: HTMLElement = document.createElement("div");
+    const widget: HTMLElement = document.createElement('div');
     widget.innerHTML = template;
-    widget.classList.add("asw-container");
+    widget.classList.add('asw-container');
 
-    let $btn: HTMLElement = widget.querySelector(".asw-menu-btn");
+    let $btn: HTMLElement = widget.querySelector('.asw-menu-btn');
 
     let offsetX = offset?.[0] ?? 20;
     let offsetY = offset?.[1] ?? 25;
@@ -24,56 +35,56 @@ export function renderWidget(options: ISeinnaSettings) {
         top?: string;
     } = {
         left: `${offsetX}px`,
-        bottom: `${offsetY}px`,
+        bottom: `${offsetY}px`
     };
 
-    if (position === "bottom-right") {
+    if (position === 'bottom-right') {
         buttonStyle = {
             ...buttonStyle,
             right: `${offsetX}px`,
-            left: "auto",
+            left: 'auto'
         };
-    } else if (position === "top-left") {
+    } else if (position === 'top-left') {
         buttonStyle = {
             ...buttonStyle,
             top: `${offsetY}px`,
-            bottom: "auto",
+            bottom: 'auto'
         };
-    } else if (position === "center-left") {
+    } else if (position === 'center-left') {
         buttonStyle = {
             ...buttonStyle,
-            bottom: `calc(50% - (55px / 2) - ${offset?.[1] ?? 0}px)`,
+            bottom: `calc(50% - (55px / 2) - ${offset?.[1] ?? 0}px)`
         };
-    } else if (position === "top-right") {
+    } else if (position === 'top-right') {
         buttonStyle = {
             top: `${offsetY}px`,
-            bottom: "auto",
+            bottom: 'auto',
             right: `${offsetX}px`,
-            left: "auto",
+            left: 'auto'
         };
-    } else if (position === "center-right") {
+    } else if (position === 'center-right') {
         buttonStyle = {
             right: `${offsetX}px`,
-            left: "auto",
-            bottom: `calc(50% - (55px / 2) - ${offset?.[1] ?? 0}px)`,
+            left: 'auto',
+            bottom: `calc(50% - (55px / 2) - ${offset?.[1] ?? 0}px)`
         };
-    } else if (position === "bottom-center") {
+    } else if (position === 'bottom-center') {
         buttonStyle = {
             ...buttonStyle,
-            left: `calc(50% - (55px / 2) - ${offset?.[0] ?? 0}px)`,
+            left: `calc(50% - (55px / 2) - ${offset?.[0] ?? 0}px)`
         };
-    } else if (position === "top-center") {
+    } else if (position === 'top-center') {
         buttonStyle = {
             top: `${offsetY}px`,
-            bottom: "auto",
-            left: `calc(50% - (55px / 2) - ${offset?.[0] ?? 0}px)`,
+            bottom: 'auto',
+            left: `calc(50% - (55px / 2) - ${offset?.[0] ?? 0}px)`
         };
     }
 
     Object.assign($btn.style, buttonStyle);
 
     let menu;
-    $btn?.addEventListener("click", (event) => {
+    $btn?.addEventListener('click', (event) => {
         event.preventDefault();
 
         if (menu) {
@@ -81,8 +92,9 @@ export function renderWidget(options: ISeinnaSettings) {
         } else {
             menu = renderMenu({
                 ...options,
-                container: widget,
+                container: widget
             });
+            googleTranslateElementInit();
         }
     });
 
