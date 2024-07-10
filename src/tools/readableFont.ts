@@ -1,6 +1,6 @@
 import { injectToolCSS } from "../utils/cssGenerator";
 import IToolConfig from "../types/IToolConfig";
-import { All_SELECTOR } from "../enum/Selectors";
+import { ALL_SELECTOR } from "../enum/Selectors";
 
 export const readableFontConfig: IToolConfig = {
     id: "readable-font",
